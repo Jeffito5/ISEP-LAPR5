@@ -1,0 +1,110 @@
+<html>
+  <head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+</head>
+<body>
+  <div class="toolbar" role="banner">
+  <div class="circle2"> 
+    <svg id="truck2" xmlns="http://www.w3.org/2000/svg" width="25px" height="26px" fill="white" class="bi bi-truck" viewBox="0 0 630 512"> <path d="M0 48C0 21.49 21.49 0 48 0H368C394.5 0 416 21.49 416 48V96H466.7C483.7 96 499.1 102.7 512 114.7L589.3 192C601.3 204 608 220.3 608 237.3V352C625.7 352 640 366.3 640 384C640 401.7 625.7 416 608 416H576C576 469 533 512 480 512C426.1 512 384 469 384 416H256C256 469 213 512 160 512C106.1 512 64 469 64 416H48C21.49 416 0 394.5 0 368V48zM544 256V237.3L466.7 160H416V256H544zM160 464C186.5 464 208 442.5 208 416C208 389.5 186.5 368 160 368C133.5 368 112 389.5 112 416C112 442.5 133.5 464 160 464zM480 368C453.5 368 432 389.5 432 416C432 442.5 453.5 464 480 464C506.5 464 528 442.5 528 416C528 389.5 506.5 368 480 368zM256.1 95.03C247.6 85.66 232.4 85.66 223 95.03C213.7 104.4 213.7 119.6 223 128.1L262.1 168H96C82.75 168 72 178.7 72 192C72 205.3 82.75 216 96 216H262.1L223 255C213.7 264.4 213.7 279.6 223 288.1C232.4 298.3 247.6 298.3 256.1 288.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175L256.1 95.03z"></path> 
+      <title>Mini Truck</title>
+      <title>Truck2</title>
+    </svg>
+  </div>
+  <span>Bem vindo à EletricGo</span>
+    <div class="spacer"></div>
+     <a aria-label="Nosso Bitbucket" target="_blank" rel="noopener" href="https://bitbucket.org/1190827/lei22_23_s5_3dg_037/src/master/" title="Bitbucket">
+      <svg id="bb-logo" height="20" data-name="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 450">
+        <rect width="300" height="300" fill="none"></rect>
+        <path d="M22.2 32A16 16 0 0 0 6 47.8a26.35 26.35 0 0 0 .2 2.8l67.9 412.1a21.77 21.77 0 0 0 21.3 18.2h325.7a16 16 0 0 0 16-13.4L505 50.7a16 16 0 0 0-13.2-18.3 24.58 24.58 0 0 0-2.8-.2L22.2 32zm285.9 297.8h-104l-28.1-147h157.3l-25.2 147z" fill="#fff"></path>
+      </svg>
+    </a>
+</div>
+
+<div id="content" class="content" role="main" [ngStyle]="{'background-color': getBackgroundColor()}">
+  <!-- Highlight Card -->
+  <div class="card highlight-card card-small">
+    <div class="circle"> 
+      <svg id="truck" xmlns="http://www.w3.org/2000/svg" width="1.678" height="1.678" fill="white" class="bi bi-truck" viewBox="0 0 640 512"> <path d="M0 48C0 21.49 21.49 0 48 0H368C394.5 0 416 21.49 416 48V96H466.7C483.7 96 499.1 102.7 512 114.7L589.3 192C601.3 204 608 220.3 608 237.3V352C625.7 352 640 366.3 640 384C640 401.7 625.7 416 608 416H576C576 469 533 512 480 512C426.1 512 384 469 384 416H256C256 469 213 512 160 512C106.1 512 64 469 64 416H48C21.49 416 0 394.5 0 368V48zM544 256V237.3L466.7 160H416V256H544zM160 464C186.5 464 208 442.5 208 416C208 389.5 186.5 368 160 368C133.5 368 112 389.5 112 416C112 442.5 133.5 464 160 464zM480 368C453.5 368 432 389.5 432 416C432 442.5 453.5 464 480 464C506.5 464 528 442.5 528 416C528 389.5 506.5 368 480 368zM256.1 95.03C247.6 85.66 232.4 85.66 223 95.03C213.7 104.4 213.7 119.6 223 128.1L262.1 168H96C82.75 168 72 178.7 72 192C72 205.3 82.75 216 96 216H262.1L223 255C213.7 264.4 213.7 279.6 223 288.1C232.4 298.3 247.6 298.3 256.1 288.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175L256.1 95.03z"></path> 
+        <title>Truck</title>
+      </svg>
+    </div>
+    <span> EletricGo a seu serviço! </span>
+  </div>
+
+  <!-- Next Steps -->
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <div id="greeting-card" class="card">
+      <h1 style="font-size:35px; color: white;">Bem-vindo Gestor de Armazém</h1>
+  </div>
+  <br>
+  <br>
+  <br>
+  <p style="font-size:20px"> Selecione a tarefa que pretende realizar</p>
+
+  <input type="hidden" #selection="">
+
+  <div class="card-container">
+    <button class="card card-small" (click)="goToGestorMenuCriarArmazem()" tabindex="0">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>
+      <span>Criar um armazém</span>
+    </button>
+
+    <button class="card card-small" (click)="goToGestorMenuCriarEntrega()" tabindex="0">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>
+      <span>Criar uma entrega</span>
+    </button> 
+
+    <!-- <button class="card card-small" (click)="goToHomePage()" tabindex="0">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 24 16"><path d="M15 8a.5.5 0 0 0-.5-.5H2.707l3.147-3.146a.5.5 0 1 0-.708-.708l-4 4a.5.5 0 0 0 0 .708l4 4a.5.5 0 0 0 .708-.708L2.707 8.5H14.5A.5.5 0 0 0 15 8z"></path></svg>
+      <span>Voltar</span>
+    </button>  -->
+    
+    <button class="card card-small" (click)="goToGestorMenuListarArmazem()" tabindex="0">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>
+      <span>Listar armazéns</span>
+    </button>
+
+    <button class="card card-small" (click)="goToGestorMenuListarEntrega()" tabindex="0">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>
+      <span>Listar entregas</span>
+    </button>
+
+    <button class="card card-small" (click)="logout()" tabindex="0">
+      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>
+      <span>Logout</span>
+    </button>
+
+  </div>
+
+      <!-- Footer -->
+      <footer>
+        G037&nbsp;
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"> Dá um like no vídeo.
+          <div class="github-star-badge">
+              <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"></path><path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path></svg>
+            Like
+          </div>
+        </a>
+        <a href="https://github.com/angular/angular" target="_blank" rel="noopener">
+          <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"></path><path d="M0 0h24v24H0z" fill="none"></path></svg>
+        </a>
+    </footer>
+
+    <input type="checkbox" id="darkmode-toggle" (click)="switch()">
+    <label id="darkmode" class="darkmode" for="darkmode-toggle"></label>
+
+</div>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+</body>
+</html>

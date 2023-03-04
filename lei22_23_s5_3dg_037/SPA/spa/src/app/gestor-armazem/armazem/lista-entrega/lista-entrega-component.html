@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="./lista-entrega-component.css">
+
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+</head>
+
+<body>
+  <div class="toolbar" role="banner">
+    <div class="circle2">
+      <svg id="truck2" xmlns="http://www.w3.org/2000/svg" width="25px" height="26px" fill="white" class="bi bi-truck"
+        viewBox="0 0 630 512">
+        <path
+          d="M0 48C0 21.49 21.49 0 48 0H368C394.5 0 416 21.49 416 48V96H466.7C483.7 96 499.1 102.7 512 114.7L589.3 192C601.3 204 608 220.3 608 237.3V352C625.7 352 640 366.3 640 384C640 401.7 625.7 416 608 416H576C576 469 533 512 480 512C426.1 512 384 469 384 416H256C256 469 213 512 160 512C106.1 512 64 469 64 416H48C21.49 416 0 394.5 0 368V48zM544 256V237.3L466.7 160H416V256H544zM160 464C186.5 464 208 442.5 208 416C208 389.5 186.5 368 160 368C133.5 368 112 389.5 112 416C112 442.5 133.5 464 160 464zM480 368C453.5 368 432 389.5 432 416C432 442.5 453.5 464 480 464C506.5 464 528 442.5 528 416C528 389.5 506.5 368 480 368zM256.1 95.03C247.6 85.66 232.4 85.66 223 95.03C213.7 104.4 213.7 119.6 223 128.1L262.1 168H96C82.75 168 72 178.7 72 192C72 205.3 82.75 216 96 216H262.1L223 255C213.7 264.4 213.7 279.6 223 288.1C232.4 298.3 247.6 298.3 256.1 288.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175L256.1 95.03z">
+        </path>
+        <title>Mini Truck</title>
+        <title>Truck2</title>
+      </svg>
+    </div>
+    <span>Bem vindo à EletricGo</span>
+    <div class="spacer"></div>
+    <a aria-label="Nosso Bitbucket" target="_blank" rel="noopener"
+      href="https://bitbucket.org/1190827/lei22_23_s5_3dg_037/src/master/" title="Bitbucket">
+      <svg id="bb-logo" height="20" data-name="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 450">
+        <rect width="300" height="300" fill="none"></rect>
+        <path
+          d="M22.2 32A16 16 0 0 0 6 47.8a26.35 26.35 0 0 0 .2 2.8l67.9 412.1a21.77 21.77 0 0 0 21.3 18.2h325.7a16 16 0 0 0 16-13.4L505 50.7a16 16 0 0 0-13.2-18.3 24.58 24.58 0 0 0-2.8-.2L22.2 32zm285.9 297.8h-104l-28.1-147h157.3l-25.2 147z"
+          fill="#fff"></path>
+      </svg>
+    </a>
+  </div>
+
+  <div id="content" class="content" role="main">
+    <h1>Listar entregas</h1>
+    <!-- <br>
+    <form>  
+      <div class="table-wrapper-scroll-y my-custom-scrollbar" id="table_div">
+
+        <table id="table_div" class="table table-bordered table-striped mb-0">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Data</th>
+              <th>Massa</th>
+              <th>Tempo de colocar</th>
+              <th>Tempo de retirar</th>
+              <th>ID do Armazém</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let entrega of entregas; let i = index" [attr.data-index]="i">
+              <td>
+                <h3>
+                  {{ 'ENT-0' + i }}
+                </h3>
+              </td> 
+              <td>
+                <h3>
+                  {{ entrega.dataEntrega }}
+                </h3>
+              </td> 
+              <td>
+                <h3>
+                  {{ entrega.massaEntrega }}
+                </h3>
+              </td>
+              <td>
+                <h3>
+                  {{ entrega.tempoColocarEntrega }}
+                </h3>
+              </td> 
+              <td>
+                <h3>
+                  {{ entrega.tempoRetirarEntrega }}
+                </h3>
+              </td>
+              <td>
+                <h3>
+                  {{ entrega.armazemId }}
+              </h3>
+              </td>
+          </tbody>
+        </table>
+      
+      </div>
+      
+      <div id="second_div">
+        <input type="date" id="dataEntregaInput" name="dataEntregaInput" style="display: none;" #dataEntregaInput placeholder="Data da entrega" (click)="getEntregaPorData(dataEntregaInput.value);">
+        <input type="text" id="armazemIdInput" name="armazemIdInput" style="display: none;" #armazemIdInput placeholder="ID do armazém" (click)="getEntregaPorArmazemId(armazemIdInput.value);">
+        <button type="button" id="b1" mat-raised-button class="big-button" (click)="goToGestorMenuListarEntrega()"> VOLTAR <a href="#"></a> </button>
+        <button type="button" id="b2" mat-raised-button class="big-button" (click)="clickToAppear(armazemIdInput)"> LISTAR POR ID ARMAZÉM <a href="#"></a> </button>
+        <button type="button" id="b3" mat-raised-button class="big-button" (click)="clickToAppear(dataEntregaInput)"> LISTAR POR DATA <a href="#"></a> </button>
+        <button type="button" id="b4" mat-raised-button class="big-button" (click)="armazemIdInput.value = ''; dataEntregaInput.value=''; buscarEntregas()"> LIMPAR <a href="#"></a> </button>
+      </div>
+    </form> -->
+
+    <div class="example-header">
+      <mat-form-field>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
+      </mat-form-field>
+    </div>
+
+    <div class="example-container mat-elevation-z8">
+      <mat-table [dataSource]="dataSource" matSort>
+
+        <!-- ID Column -->
+        <ng-container matColumnDef="id">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+        </ng-container>
+
+        <!-- Progress Column -->
+        <ng-container matColumnDef="dataEntrega">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Data da entrega </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.dataEntrega}} </mat-cell>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="massaEntrega">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Massa da entrega </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.massaEntrega}} </mat-cell>
+        </ng-container>
+
+        <!-- Color Column -->
+        <ng-container matColumnDef="tempoColocarEntrega">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Tempo de colocar a entrega </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.tempoColocarEntrega}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="tempoRetirarEntrega">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> Tempo de retirar a entrega </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.tempoRetirarEntrega}} </mat-cell>
+        </ng-container>
+
+        <ng-container matColumnDef="armazemId">
+          <mat-header-cell *matHeaderCellDef mat-sort-header> ID do armazém </mat-header-cell>
+          <mat-cell *matCellDef="let row"> {{row.armazemId}} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;">
+        </mat-row>
+      </mat-table>
+
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+
+    </div>
+
+    <button type="button" id="b1" mat-raised-button class="big-button" (click)="goToGestorMenuListarEntrega()"> VOLTAR
+      <a href="#"></a> </button>
+  </div>
+
+
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+  <!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+  <!-- <router-outlet></router-outlet> -->
+
+</body>
+
+</html>

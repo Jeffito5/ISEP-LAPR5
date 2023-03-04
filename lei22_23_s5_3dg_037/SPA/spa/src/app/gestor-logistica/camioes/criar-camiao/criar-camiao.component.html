@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="./criar-camiao.component.css"> 
+
+
+  <body>
+
+  
+  
+  <div id="content" class="content" role="main">
+    <h1>Criar camiao</h1>
+    <br>
+    <form>
+      <div class="card">
+      
+
+        
+        
+
+        <div class="group">      
+        <input type="text" id="matricula" required #matricula>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Matricula do Camiao</label>
+      </div>
+
+      <div class="group">      
+        <input type="number" id="tara" required #tara>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Tara do Camiao</label>
+      </div>
+
+      <div class="group">      
+        <input type="number" id="capacidadeCarga" required #capacidadeCarga>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Capacidade de Carga do Camião</label>
+      </div>
+      
+      <div class="group">      
+        <input type="number" id="cargaBaterias" required #cargaBaterias>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Carga máxima das baterias do Camião</label>
+      </div>
+        
+      <div class="group">      
+        <input type="number" id="autonomia" required #autonomia>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Autonomia do Camiao</label>
+      </div>
+
+      <div class="group">      
+        <input type="number" id="tempoCarregamento" required #tempoCarregamento>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Tempo de carregamento do Camião</label>
+      </div>
+
+      
+  
+      
+      <img src="../assets/images/truck.svg"/>
+      
+      <button id="b1" class="big-button" mat-raised-button (click)="guardar(matricula.value,tara.value,capacidadeCarga.value,
+                                          cargaBaterias.value, autonomia.value, tempoCarregamento.value)"> CONFIRMAR <a href="#"></a> </button>
+      <button id="b2" class="big-button" mat-raised-button (click)="cancelar()"> CANCELAR <a href="#"></a> </button>
+      <button id="b3" class="big-button" mat-raised-button (click)=" matricula.value='';tara.value=''; capacidadeCarga.value='';
+      cargaBaterias.value=''; autonomia.value=''; tempoCarregamento.value='';"> LIMPAR <a href="#"></a> </button>
+      
+    </div>
+      
+    </form>
+  </div>
+  
+
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+  <!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  
+  <!--router-outlet></router-outlet-->
+  </body>

@@ -1,0 +1,244 @@
+{
+	"info": {
+		"_postman_id": "974b479b-4ae2-435b-8670-63fb9bf17173",
+		"name": "Armazem_PostMan_Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24275211"
+	},
+	"item": [
+		{
+			"name": "GetAll",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Tamanho Correto\", ()=> {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.length).to.eql(6);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7097/api/Armazem/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7097",
+					"path": [
+						"api",
+						"Armazem",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetById",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Designcao Correta\", ()=> {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.designacao).to.eql(\"Porto\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Endereço Correta\", ()=> {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.endereco).to.eql(\"Espanha,   465-15,  França\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetByDesignacao",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//pm.environment.get(\"designacao\");\r",
+							"\r",
+							"pm.test(\"Id Correto\", ()=> {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson[0].id).to.eql(\"M00\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Endereço Correta\", ()=> {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson[0].endereco).to.eql(\"Espanha,   465-15,  França\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7097/api/Armazem/Porto",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7097",
+					"path": [
+						"api",
+						"Armazem",
+						"Porto"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201, 202]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": \"M05\",\r\n        \"designacao\": \"Sao Mamede de Infesta\",\r\n        \"latitude\": 1,\r\n        \"longitude\": 2,\r\n        \"altitude\": 3,\r\n        \"endereco\": \"Espanha,  465-15, Som Mamede\",\r\n        \"ativo\": true\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7097/api/Armazem/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7097",
+					"path": [
+						"api",
+						"Armazem",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Ativo correto\", ()=> {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.ativo).to.eql(false);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Altitude correto\", ()=> {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.altitude).to.eql(45);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "    {\r\n        \"id\": \"M04\",\r\n        \"designacao\": \"Matosinhos\",\r\n        \"latitude\": 1,\r\n        \"longitude\": 2,\r\n        \"altitude\": 45,\r\n        \"endereco\": \"Espanha,  465-15, França\",\r\n        \"ativo\": false\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7097/api/Armazem/M04",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7097",
+					"path": [
+						"api",
+						"Armazem",
+						"M04"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "SoftDelete",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Altitude correto\", ()=> {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.ativo).to.eql(false);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7097/api/Armazem/M03",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7097",
+					"path": [
+						"api",
+						"Armazem",
+						"M03"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

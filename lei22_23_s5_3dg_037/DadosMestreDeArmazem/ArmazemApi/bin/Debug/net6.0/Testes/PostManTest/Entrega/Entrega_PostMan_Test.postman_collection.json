@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "966a1e69-5765-4a2c-97cb-69f1c9078e1b",
+		"name": "Entrega_PostMan_Test",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24275211"
+	},
+	"item": [
+		{
+			"name": "GetAll",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Tamanho Correto\", ()=> {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.length).to.eql(2);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7097/api/Entregas/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7097",
+					"path": [
+						"api",
+						"Entregas",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetById",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Data Entrega Correta\", ()=> {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.dataEntrega).to.eql(\"01/20/2022\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Massa Correta\", ()=> {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.massaEntrega).to.eql(10);\r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Tempos Retirar e Colocar Corretos\", ()=> {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.tempoColocarEntrega).to.eql(10);\r",
+							"    pm.expect(responseJson.tempoRetirarEntrega).to.eql(10);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"ArmazemId Correto\", ()=> {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.armazemId).to.eql(\"M01\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7097/api/Entregas/0848f775-8138-463d-8be5-13a2e62a80cd",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7097",
+					"path": [
+						"api",
+						"Entregas",
+						"0848f775-8138-463d-8be5-13a2e62a80cd"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetByData",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"//pm.environment.get(\"designacao\");\r",
+							"\r",
+							"pm.test(\"Id Correto\", ()=> {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson[0].id).to.eql(\"0848f775-8138-463d-8be5-13a2e62a80cd\");\r",
+							"    pm.expect(responseJson[1].id).to.eql(\"d34b4462-af12-4bdb-88a4-e31396a7b3a9\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tamanho Correto\", ()=> {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.length).to.eql(2);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:7097/api/Entregas/20220120",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7097",
+					"path": [
+						"api",
+						"Entregas",
+						"20220120"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Post",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201, 202]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"dataEntrega\": \"20230224\",\r\n  \"massaEntrega\": 10,\r\n  \"tempoColocarEntrega\": 15,\r\n  \"tempoRetirarEntrega\": 15,\r\n  \"armazemId\": \"M03\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7097/api/Entregas/",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7097",
+					"path": [
+						"api",
+						"Entregas",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Tempos Retirar e Colocar Corretos\", ()=> {\r",
+							"    const responseJson = pm.response.json();\r",
+							"    pm.expect(responseJson.tempoColocarEntrega).to.eql(45);\r",
+							"    pm.expect(responseJson.tempoRetirarEntrega).to.eql(20);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n  \"id\": \"0848f775-8138-463d-8be5-13a2e62a80cd\",\r\n  \"dataEntrega\": \"20230224\",\r\n  \"massaEntrega\": 10,\r\n  \"tempoColocarEntrega\": 45,\r\n  \"tempoRetirarEntrega\": 20,\r\n  \"armazemId\": \"M03\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://localhost:7097/api/Entregas/0848f775-8138-463d-8be5-13a2e62a80cd",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "7097",
+					"path": [
+						"api",
+						"Entregas",
+						"0848f775-8138-463d-8be5-13a2e62a80cd"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

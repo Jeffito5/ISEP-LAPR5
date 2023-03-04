@@ -1,0 +1,231 @@
+{
+	"info": {
+		"_postman_id": "8a715361-f405-45f3-b5f6-3f213db0764f",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24257821"
+	},
+	"item": [
+		{
+			"name": "Post Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201, 202]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"tara\":\"16\",\r\n    \"capacidadeCarga\":\"4\",\r\n    \"cargaBaterias\":\"205\",\r\n    \"autonomia\":\"80\",\r\n    \"tempoCarregamento\":\"80\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/camioes",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"camioes"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "TestGetWithAllAtributtes",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Tara equals 16\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.tara).to.eql(16);\r",
+							"  \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Capacidade de carga equals 4\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.capacidadeCarga).to.eql(4);\r",
+							"  \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Carga de baterias equals 205\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.cargaBaterias).to.eql(205);\r",
+							"  \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Autonomia equals 80\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.autonomia).to.eql(80);\r",
+							"  \r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Tempo de Carregamento equals 80\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.tempoCarregamento).to.eql(80);\r",
+							"  \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/camioes/b3e90587-e9c0-4795-bf5f-07cb0aec95ae",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"camioes",
+						"b3e90587-e9c0-4795-bf5f-07cb0aec95ae"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Test",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.get(\"carga\");"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Tara changed equals 8\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.tara).to.eql('8');\r",
+							"  \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Capacidade de carga changed equals 5\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.capacidadeCarga).to.eql('5');\r",
+							"  \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Carga de baterias changed equals 89\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.cargaBaterias).to.eql('89');\r",
+							"  \r",
+							"});\r",
+							"\r",
+							"pm.test(\"Autonomia changed equals 90\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.autonomia).to.eql('90');\r",
+							"  \r",
+							"});\r",
+							"\r",
+							"\r",
+							"pm.test(\"Tempo de Carregamento changed equals 90\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.tempoCarregamento).to.eql('90');\r",
+							"  \r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n    \r\n    \"tara\": \"8\",\r\n    \"capacidadeCarga\": \"5\",\r\n    \"cargaBaterias\": \"89\",\r\n    \"autonomia\": \"90\",\r\n    \"tempoCarregamento\": \"90\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/camioes/c0e0b49a-8d52-491c-a9b8-c69ec4310fa5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"camioes",
+						"c0e0b49a-8d52-491c-a9b8-c69ec4310fa5"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "carga",
+			"value": "8",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,502 @@
+<html>
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <!-- <script type="text/javascript">
+      function colorDiv(){
+        document.getElementById("content").style.background="#1976d2";
+      }
+    </script> -->
+  <style>
+    :host {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      font-size: 14px;
+      color: #333;
+      box-sizing: border-box;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      margin: 8px 0;
+    }
+
+    p {
+      margin: 0;
+    }
+
+    .spacer {
+      flex: 1;
+    }
+
+    .toolbar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      background-color: #1976d2;
+      color: white;
+      font-weight: 600;
+    }
+
+    .toolbar img {
+      margin: 0 16px;
+    }
+
+    .content {
+      display: flex;
+      margin: 82px auto 32px;
+      padding: 0 16px;
+      /* max-width: 960px; */
+      flex-direction: column;
+      align-items: center;
+    }
+
+    label {
+      width: 50px;
+      height: 20px;
+      position: relative;
+      display: block;
+      background: #ebebeb;
+      border-radius: 200px;
+      box-shadow: inset 0px 5px 15px rgba(0, 0, 0, 0.4), inset 0px -5px 15px rgba(255, 255, 255, 0.4);
+      cursor: pointer;
+    }
+
+    label:after {
+      content: "";
+      width: 18px;
+      height: 18px;
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      background: linear-gradient(180deg, #ffcc89, #d8860b);
+      border-radius: 180px;
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    input:checked+label {
+      background: #242424;
+    }
+
+    input:checked+label:after {
+      left: 49px;
+      transform: translateX(-100%);
+      background: linear-gradient(180deg, #777, #3a3a3a);
+    }
+
+    label,
+    label:after {
+      transition: 0.3s
+    }
+
+    label:active:after {
+      width: 26px;
+    }
+
+    /* input[type="checkbox"]:checked + .content {
+      background-color:#e11a84;
+    } */
+
+    input {
+      width: 0;
+      height: 0;
+      /* visibility: hidden; */
+    }
+
+    svg.material-icons {
+      height: 24px;
+      width: auto;
+    }
+
+    svg.material-icons:not(:last-child) {
+      margin-right: 8px;
+    }
+
+    .card svg.material-icons path {
+      fill: #888;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 100px;
+    }
+
+    .card {
+      all: unset;
+      border-radius: 4px;
+      border: 1px solid #eee;
+      background-color: #fafafa;
+      height: 45px;
+      width: 200px;
+      margin: 0 10px 30px;
+      padding: 16px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.2s ease-in-out;
+      line-height: 24px;
+    }
+
+    .card-container .card:not(:last-child) {
+      margin-right: 0;
+    }
+
+    .card.card-small {
+      height: 16px;
+      width: 168px;
+    }
+
+    .card-container .card:not(.highlight-card) {
+      cursor: pointer;
+    }
+
+    .card-container .card:not(.highlight-card):hover {
+      transform: translateY(-3px);
+      box-shadow: 0 4px 17px rgba(0, 0, 0, 0.35);
+    }
+
+    .card-container .card:not(.highlight-card):hover .material-icons path {
+      fill: rgb(105, 103, 103);
+    }
+
+    .card.highlight-card {
+      background-color: #1976d2;
+      color: white;
+      font-weight: 600;
+      border: none;
+      width: auto;
+      min-width: 10%;
+      position: relative;
+    }
+
+    .card.card.highlight-card span {
+      margin-left: 60px;
+    }
+
+    svg#truck {
+      width: 60px;
+      height: 250px;
+      position: absolute;
+      left: 15px;
+      top: -82px;
+    }
+
+    .circle {
+      position: absolute;
+      left: -20px;
+      width: 85px;
+      height: 85px;
+      border-radius: 50px;
+      font-size: 15px;
+      color: #fff;
+      line-height: 50px;
+      text-align: center;
+      background: red
+    }
+
+    .circle2 {
+      width: 35px;
+      height: 35px;
+      border-radius: 50px;
+      font-size: 15px;
+      color: #fff;
+      line-height: 50px;
+      text-align: center;
+      background: red
+    }
+
+    /* .circle2{  
+      width:35px;
+      height:35px;
+      border-radius:50px;
+      font-size:15px;
+      color:#fff;
+      line-height:50px;
+      text-align:center;
+      background: red
+  } */
+
+    a,
+    a:visited,
+    a:hover {
+      color: #1976d2;
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: #125699;
+    }
+
+    .terminal {
+      position: relative;
+      width: 80%;
+      max-width: 600px;
+      border-radius: 6px;
+      padding-top: 45px;
+      margin-top: 8px;
+      overflow: hidden;
+      background-color: rgb(15, 15, 16);
+    }
+
+    .terminal::before {
+      content: "\2022 \2022 \2022";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: rgb(58, 58, 58);
+      color: #c2c3c4;
+      width: 100%;
+      font-size: 2rem;
+      line-height: 0;
+      padding: 14px 0;
+      text-indent: 4px;
+    }
+
+    .terminal pre {
+      font-family: SFMono-Regular, Consolas, Liberation Mono, Menlo, monospace;
+      color: white;
+      padding: 0 1rem 1rem;
+      margin: 0;
+    }
+
+    .circle-link {
+      height: 40px;
+      width: 40px;
+      border-radius: 40px;
+      margin: 8px;
+      background-color: white;
+      border: 1px solid #eeeeee;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+      transition: 1s ease-out;
+    }
+
+    .circle-link:hover {
+      transform: translateY(-0.25rem);
+      box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    footer {
+      margin-top: 100px;
+      display: flex;
+      align-items: center;
+      line-height: 20px;
+    }
+
+    footer a {
+      display: flex;
+      align-items: center;
+    }
+
+    .github-star-badge {
+      color: #24292e;
+      display: flex;
+      align-items: center;
+      font-size: 12px;
+      padding: 3px 10px;
+      border: 1px solid rgba(27, 31, 35, .2);
+      border-radius: 3px;
+      background-image: linear-gradient(-180deg, #fafbfc, #eff3f6 90%);
+      margin-left: 4px;
+      font-weight: 600;
+    }
+
+    #greeting-card {
+      background-color: #1976d2;
+      width: 530px;
+      height: 10px;
+      border-radius: 4px;
+    }
+
+    .github-star-badge:hover {
+      background-image: linear-gradient(-180deg, #f0f3f6, #e6ebf1 90%);
+      border-color: rgba(27, 31, 35, .35);
+      background-position: -.5em;
+    }
+
+    .github-star-badge .material-icons {
+      height: 16px;
+      width: 16px;
+      margin-right: 4px;
+    }
+
+    /* Responsive Styles */
+    @media screen and (max-width: 767px) {
+
+      .card-container>*:not(.circle-link),
+      .terminal {
+        width: 100%;
+      }
+
+      .card:not(.highlight-card) {
+        height: 16px;
+        margin: 8px 0;
+      }
+
+      .card.highlight-card span {
+        margin-left: 72px;
+      }
+    }
+  </style>
+
+  <!-- Toolbar -->
+</head>
+
+<body>
+  <div class="toolbar" role="banner">
+    <div class="circle2">
+      <svg id="truck2" xmlns="http://www.w3.org/2000/svg" width="25px" height="26px" fill="white" class="bi bi-truck"
+        viewBox="0 0 630 512">
+        <path
+          d="M0 48C0 21.49 21.49 0 48 0H368C394.5 0 416 21.49 416 48V96H466.7C483.7 96 499.1 102.7 512 114.7L589.3 192C601.3 204 608 220.3 608 237.3V352C625.7 352 640 366.3 640 384C640 401.7 625.7 416 608 416H576C576 469 533 512 480 512C426.1 512 384 469 384 416H256C256 469 213 512 160 512C106.1 512 64 469 64 416H48C21.49 416 0 394.5 0 368V48zM544 256V237.3L466.7 160H416V256H544zM160 464C186.5 464 208 442.5 208 416C208 389.5 186.5 368 160 368C133.5 368 112 389.5 112 416C112 442.5 133.5 464 160 464zM480 368C453.5 368 432 389.5 432 416C432 442.5 453.5 464 480 464C506.5 464 528 442.5 528 416C528 389.5 506.5 368 480 368zM256.1 95.03C247.6 85.66 232.4 85.66 223 95.03C213.7 104.4 213.7 119.6 223 128.1L262.1 168H96C82.75 168 72 178.7 72 192C72 205.3 82.75 216 96 216H262.1L223 255C213.7 264.4 213.7 279.6 223 288.1C232.4 298.3 247.6 298.3 256.1 288.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175L256.1 95.03z">
+        </path>
+        <title>Mini Truck</title>
+        <title>Truck2</title>
+      </svg>
+    </div>
+    <span>Bem vindo à EletricGo</span>
+    <div class="spacer"></div>
+    <a aria-label="Nosso Bitbucket" target="_blank" rel="noopener"
+      href="https://bitbucket.org/1190827/lei22_23_s5_3dg_037/src/master/" title="Bitbucket">
+      <svg id="bb-logo" height="20" data-name="Logo" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 450">
+        <rect width="300" height="300" fill="none"></rect>
+        <path
+          d="M22.2 32A16 16 0 0 0 6 47.8a26.35 26.35 0 0 0 .2 2.8l67.9 412.1a21.77 21.77 0 0 0 21.3 18.2h325.7a16 16 0 0 0 16-13.4L505 50.7a16 16 0 0 0-13.2-18.3 24.58 24.58 0 0 0-2.8-.2L22.2 32zm285.9 297.8h-104l-28.1-147h157.3l-25.2 147z"
+          fill="#fff"></path>
+      </svg>
+    </a>
+  </div>
+
+  <div id="content" class="content" role="main" [ngStyle]="{'background-color': getBackgroundColor()}">
+    <!-- Highlight Card -->
+    <div class="card highlight-card card-small">
+      <div class="circle">
+        <svg id="truck" xmlns="http://www.w3.org/2000/svg" width="1.678" height="1.678" fill="white" class="bi bi-truck"
+          viewBox="0 0 640 512">
+          <path
+            d="M0 48C0 21.49 21.49 0 48 0H368C394.5 0 416 21.49 416 48V96H466.7C483.7 96 499.1 102.7 512 114.7L589.3 192C601.3 204 608 220.3 608 237.3V352C625.7 352 640 366.3 640 384C640 401.7 625.7 416 608 416H576C576 469 533 512 480 512C426.1 512 384 469 384 416H256C256 469 213 512 160 512C106.1 512 64 469 64 416H48C21.49 416 0 394.5 0 368V48zM544 256V237.3L466.7 160H416V256H544zM160 464C186.5 464 208 442.5 208 416C208 389.5 186.5 368 160 368C133.5 368 112 389.5 112 416C112 442.5 133.5 464 160 464zM480 368C453.5 368 432 389.5 432 416C432 442.5 453.5 464 480 464C506.5 464 528 442.5 528 416C528 389.5 506.5 368 480 368zM256.1 95.03C247.6 85.66 232.4 85.66 223 95.03C213.7 104.4 213.7 119.6 223 128.1L262.1 168H96C82.75 168 72 178.7 72 192C72 205.3 82.75 216 96 216H262.1L223 255C213.7 264.4 213.7 279.6 223 288.1C232.4 298.3 247.6 298.3 256.1 288.1L336.1 208.1C346.3 199.6 346.3 184.4 336.1 175L256.1 95.03z">
+          </path>
+          <title>Truck</title>
+        </svg>
+      </div>
+      <span> EletricGo a seu serviço! </span>
+    </div>
+
+    <!-- Next Steps -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <div id="greeting-card" class="card">
+      <h2 style="font-size:35px; color: white;">Bem-vindo Administrador</h2>
+    </div>
+    <br>
+    <br>
+    <br>
+    <p style="font-size:20px"> Faça login de acordo com a sua função</p>
+
+    <input type="hidden" #selection="">
+
+    <div class="card-container">
+      <!-- <button class="card card-small" (click)="goToGestorMenuPage()" tabindex="0">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>
+        <span>Gestor de armazéns</span>
+      </button>
+  
+      <button class="card card-small" (click)="goToGestorMenuPageLogistica()" tabindex="0">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>
+        <span>Gestor de Logística</span>
+      </button>
+  
+      <button class="card card-small" (click)="goToGestorMenuPageFrota()" tabindex="0">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>
+        <span>Gestor de Frotas</span>
+      </button>
+      <button class="card card-small" (click)="goToGestorMenuRede3DViaria()" tabindex="0">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path></svg>
+        <span>Rede Viária 3D</span>
+      </button> -->
+      <button class="card card-small" (click)="goToCriarUtilizadorMenuPage()" tabindex="0">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
+        </svg>
+        <span>Criar um utilizador</span>
+      </button>
+
+      <button class="card card-small" (click)="goToAnonimizarUtilizadorMenuPage()" tabindex="0">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
+        </svg>
+        <span>Anonimizar um utilizador</span>
+      </button>
+
+      <button class="card card-small" (click)="goToListarUtilizadorMenuPage()" tabindex="0">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
+        </svg>
+        <span>Listar utilizadores</span>
+      </button>
+
+      <button class="card card-small" (click)="logout()" tabindex="0">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
+        </svg>
+        <span>Logout</span>
+      </button>
+
+    </div>
+
+
+
+    <!-- Footer -->
+    <footer>
+      G037&nbsp;
+      <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" rel="noopener"> Dá um like no vídeo.
+        <div class="github-star-badge">
+          <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+            <path d="M0 0h24v24H0z" fill="none"></path>
+            <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z"></path>
+          </svg>
+          Like
+        </div>
+      </a>
+      <a href="https://github.com/angular/angular" target="_blank" rel="noopener">
+        <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+          <path d="M10 6L8.59 7.41 13.17 12l-4.58 4.59L10 18l6-6z" fill="#1976d2"></path>
+          <path d="M0 0h24v24H0z" fill="none"></path>
+        </svg>
+      </a>
+    </footer>
+
+    <!-- <input type="checkbox" id="darkmode-toggle" (click)="switch()">
+    <label id="darkmode" class="darkmode" for="darkmode-toggle"></label> -->
+
+  </div>
+
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+  <!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+</body>
+
+</html>

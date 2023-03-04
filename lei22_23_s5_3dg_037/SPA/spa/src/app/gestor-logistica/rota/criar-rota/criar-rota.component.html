@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="./criar-rota.component.css"> 
+
+<body>
+  
+  <div id="content" class="content" role="main">
+    <h1>Criar rota</h1>
+    <br>
+    <form>
+      <div class="card">
+      <!-- <div class="group">      
+        <input type="text" id="idRota" required #idRota>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Id da Rota</label>
+      </div> -->
+        
+      <div class="group">      
+        <!-- <input type="text" id="idArmazemOrigem" required #idArmazemOrigem> -->
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <select type="" id="armazens" required #armazemInicio form="carform" required>
+          <option *ngFor="let armazem of armazens" value="{{armazem.id}}">{{armazem.id}}</option>
+        </select>
+        <label>Id do Armazém Origem</label>
+      </div>
+
+      <div class="group">      
+        <!-- <input type="text" id="idArmazemDestino" required #idArmazemDestino> -->
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <select type="" id="armazens2" required #armazemDestino form="carform" required>
+          <option *ngFor="let armazem of armazens" value="{{armazem.id}}">{{armazem.id}}</option>
+        </select>
+        <label>Id do Armazém Destino</label>
+      </div>
+
+      <div class="group">      
+        <input type="number" id="distancia" required #distancia>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Distancia da Rota</label>
+      </div>
+        
+      <div class="group">      
+        <input type="number" id="energiaGasta" required #energiaGasta>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Energia Gasta na Rota</label>
+      </div>
+
+      <div class="group">      
+        <input type="number" id="tempoMaximo" required #tempoMaximo>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Tempo Maximo da Rota</label>
+      </div>
+
+      <div class="group">      
+        <input type="number" id="tempoExtra" required #tempoExtra>
+        <span class="highlight"></span>
+        <span class="bar"></span>
+        <label>Tempo Extra da Rota</label>
+      </div>
+      
+      <img src="../assets/images/126469136-delivery-route-icon-service-delivery-truck-and-pointers-on-way-vector-illustration-isolate-on-white-.webp"/>
+      
+      <button id="b1" class="big-button" mat-raised-button (click)="guardar(armazemInicio.value, armazemDestino.value,
+                                          distancia.value, energiaGasta.value, tempoMaximo.value, tempoExtra.value)"> CONFIRMAR <a href="#"></a> </button>
+      <button id="b2" class="big-button" mat-raised-button (click)="cancelar()"> VOLTAR <a href="#"></a> </button>
+      <button id="b3" class="big-button" mat-raised-button (click)="armazemInicio.value=''; armazemDestino.value='';
+      distancia.value=''; energiaGasta.value=''; tempoMaximo.value=''; tempoExtra.value='';"> LIMPAR <a href="#"></a> </button>
+      
+    </div>
+      
+    </form>
+  </div>
+  
+
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+  <!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+  <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  
+  <!--router-outlet></router-outlet-->
+  </body>
+  

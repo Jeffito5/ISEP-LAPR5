@@ -1,0 +1,9 @@
+{
+    "id": "M00",
+    "designacao" : "Porto",
+    "endereco" : "Rua, 3585-654, Lisboa Portugal",
+    "longitude" : 0.00,
+    "latitude" : 1.000,
+    "altitude" : 1000.0,
+    "Ativo" : true
+}

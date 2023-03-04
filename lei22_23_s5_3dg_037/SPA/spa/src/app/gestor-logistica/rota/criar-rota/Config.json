@@ -1,0 +1,8 @@
+{
+    "idArmazemOrigem" : "M01",
+    "idArmazemDestino" : "M02",
+    "distancia" : 15.00,
+    "energiaGasta" : 75.00,
+    "tempoMaximo" : 60.0,
+    "tempoExtra" : 30.0
+}

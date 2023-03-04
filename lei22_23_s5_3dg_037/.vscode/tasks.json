@@ -1,0 +1,32 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "typescript",
+			"tsconfig": "ModuloLogistica/tsconfig.json",
+			"problemMatcher": [
+				"$tsc"
+			],
+			"group": "build",
+			"label": "tsc: build - ModuloLogistica/tsconfig.json"
+		},
+		{
+			"type": "npm",
+			"script": "build",
+			"path": "ModuloLogistica",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: build - ModuloLogistica",
+			"detail": "tsc"
+		},
+		{
+			"type": "npm",
+			"script": "heroku-postbuild",
+			"path": "ModuloLogistica",
+			"group": "build",
+			"problemMatcher": [],
+			"label": "npm: heroku-postbuild - ModuloLogistica",
+			"detail": "npm run build"
+		}
+	]
+}

@@ -1,0 +1,446 @@
+{
+	"info": {
+		"_postman_id": "6aab90b7-2492-4150-88b5-1fe9fd9d7d94",
+		"name": "Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24255895"
+	},
+	"item": [
+		{
+			"name": "Post Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201, 202]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \"idArmazemOrigem\": \"2\",\r\n    \"idArmazemDestino\": \"10\",\r\n    \"distancia\": 55.0,\r\n    \"energiaGasta\": 45.5,\r\n    \"tempoMaximo\": 5.3,\r\n    \"tempoExtra\": 2.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/rotas",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"rotas"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Id Armzazem Origem equals 1\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.idArmazemOrigem).to.eql(\"1\");\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Id Armzazem Destino equals 2\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.idArmazemDestino).to.eql(\"2\");\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Distancia equals 12\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.distancia).to.eql(12);\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Energia Gasta equals 24\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.energiaGasta).to.eql(24);\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tempo Maximo equals 3\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.tempoMaximo).to.eql(3);\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tempo Extra equals 1\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.tempoExtra).to.eql(1);\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/rotas/bfe47ca5-3da5-48e6-8ae4-e135998158ce",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"rotas",
+						"bfe47ca5-3da5-48e6-8ae4-e135998158ce"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Put Test",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \"idArmazemOrigem\": \"5\",\r\n    \"idArmazemDestino\": \"4\",\r\n    \"distancia\": 12.0,\r\n    \"energiaGasta\": 24.0,\r\n    \"tempoMaximo\": 3.0,\r\n    \"tempoExtra\": 1.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/rotas/366c6a3d-9f51-495c-beb8-df15e011704e",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"rotas",
+						"366c6a3d-9f51-495c-beb8-df15e011704e"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAll Test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/rotas/idArmazemOrigem/5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"rotas",
+						"idArmazemOrigem",
+						"5"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetByIdArmazemOrigem Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Successful POST request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([200,201, 202]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/rotas/idArmazemOrigem/M02",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"rotas",
+						"idArmazemOrigem",
+						"M02"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetByIdArmazemDestino Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Id Armzazem Origem equals M02\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.idArmazemOrigem).to.eql(\"M02\");\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Id Armzazem Destino equals M10\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.idArmazemDestino).to.eql(\"M10\");\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Distancia equals 25\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.distancia).to.eql(25);\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Energia Gasta equals 45\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.energiaGasta).to.eql(45);\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tempo Maximo equals 5\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.tempoMaximo).to.eql(5);\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tempo Extra equals 2\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.tempoExtra).to.eql(2);\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/rotas/idArmazemOrigem/M02",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"rotas",
+						"idArmazemOrigem",
+						"M02"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutByArmazemOrigem Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Id Armzazem Origem equals 5\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.idArmazemOrigem).to.eql(\"5\");\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Id Armzazem Destino equals 4\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.idArmazemDestino).to.eql(\"4\");\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Distancia equals 12\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.distancia).to.eql(12);\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Energia Gasta equals 24\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.energiaGasta).to.eql(24);\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tempo Maximo equals 3\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.tempoMaximo).to.eql(3);\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tempo Extra equals 1\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.tempoExtra).to.eql(1);\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \"idArmazemOrigem\": \"5\",\r\n    \"idArmazemDestino\": \"4\",\r\n    \"distancia\": 12.0,\r\n    \"energiaGasta\": 24.0,\r\n    \"tempoMaximo\": 3.0,\r\n    \"tempoExtra\": 1.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/rotas/aebf6249-c5e6-4a49-80da-3f0244f8fbff",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"rotas",
+						"aebf6249-c5e6-4a49-80da-3f0244f8fbff"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PutByArmazemDestino Test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Id Armzazem Origem equals 5\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.idArmazemOrigem).to.eql(\"5\");\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Id Armzazem Destino equals 4\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.idArmazemDestino).to.eql(\"4\");\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Distancia equals 12\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.distancia).to.eql(12);\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Energia Gasta equals 24\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.energiaGasta).to.eql(24);\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tempo Maximo equals 3\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.tempoMaximo).to.eql(3);\r",
+							"\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Tempo Extra equals 1\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.tempoExtra).to.eql(1);\r",
+							"\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{   \r\n    \"idArmazemOrigem\": \"5\",\r\n    \"idArmazemDestino\": \"4\",\r\n    \"distancia\": 12.0,\r\n    \"energiaGasta\": 24.0,\r\n    \"tempoMaximo\": 3.0,\r\n    \"tempoExtra\": 1.0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/rotas/aebf6249-c5e6-4a49-80da-3f0244f8fbff",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"rotas",
+						"aebf6249-c5e6-4a49-80da-3f0244f8fbff"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

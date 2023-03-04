@@ -1,0 +1,30 @@
+Começar:
+
+	- Fazer testes mais cedo;
+
+	- Preencher Daily Scrums frequentemente;
+
+	- Fechar issues mais frequentemente bem como apontar o tempo utilizado para esse issue;
+
+
+Parar:
+
+	- Parar de deixar as tasks de Análise para último;
+
+	- Parar de deixar as tarefas acumularem.
+
+
+Continuar:
+
+	- Comunicação e entreajuda entre os elementos do grupo;
+
+	- Boa implementação do código seguindo as arquiteturas e metodologias aprendidas;
+
+	- Bom design dos gráficos seguindo a arquitetura Onion.
+
+
+O que mudamos relativamente ao Sprint anterior?
+
+	- Documentação foi realizada mais cedo;
+
+	- Commits corresponderam aos issues.

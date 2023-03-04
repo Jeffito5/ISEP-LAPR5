@@ -1,0 +1,47 @@
+[
+    {
+        "email": "alex123@gmail.com",
+        "passowrd": "mrpizza",
+        "role": "administrador"
+    },
+    {
+        "email": "joaquim123@gmail.com",
+        "passowrd": "avatar2naopresta",
+        "role": "gestor_armazem"
+    },
+    {
+        "email": "dn@gmail.com",
+        "passowrd": "pingodoce",
+        "role": "gestor_logistica"
+    },
+    {
+        "email": "lp@gmail.com",
+        "passowrd": "saladadefruta",
+        "role": "gestor_frota"
+    },
+    {
+        "email": "anamariazinha@gmail.com",
+        "passowrd": "anagrandota",
+        "role": "administrador"
+    },
+    {
+        "email": "moscowmule@chota.com",
+        "passowrd": "grandota",
+        "role": "administrador"
+    },
+    {
+        "email": "quinzinho@hotmail.com",
+        "passowrd": "cabritinha",
+        "role": "gestor_armazem"
+    },
+    {
+        "email": "ameliadrip@gmail.com",
+        "passowrd": "celinedion",
+        "role": "gestor_logistica"
+    },
+    {
+        "email": "pedrobibliasagrada@gmail.com",
+        "passowrd": "vijesusnomonte",
+        "role": "gestor_frota"
+    }
+]

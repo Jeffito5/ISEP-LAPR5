@@ -1,0 +1,8 @@
+{
+    "nome" : "user01",
+    "email" : "user01@gmail.com",
+    "password" : "password01",
+    "dataNascimento" : "01/01/2000",
+    "numeroTelefone" : "999999999",
+    "tipoUser" : "administrador"
+}

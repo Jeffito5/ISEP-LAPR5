@@ -1,0 +1,238 @@
+{
+	"info": {
+		"_postman_id": "d3f9d55f-c0e5-456a-800b-daa3a6d8d36c",
+		"name": "PlaneamentoTest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "24275211"
+	},
+	"item": [
+		{
+			"name": "CamiaoVálido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"IdCamiao\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.idCamiao).to.eql(\"5d107bee-aea1-4d5d-a3a1-51448f70c320\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"CustoCaminho\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.custoCaminho).to.eql(255.29827586206898);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Lista Final\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.listaFinal[0]).to.eql(\"M05\");\r",
+							"  pm.expect(responseJson.listaFinal[1]).to.eql(\"M04\");\r",
+							"  pm.expect(responseJson.listaFinal[2]).to.eql(\"M08\");\r",
+							"  pm.expect(responseJson.listaFinal[3]).to.eql(\"M01\");\r",
+							"  pm.expect(responseJson.listaFinal[4]).to.eql(\"M05\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/planeamento/criar_frota?diaEntrega=20220120&idCamiao=5d107bee-aea1-4d5d-a3a1-51448f70c320&opIndex=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"planeamento",
+						"criar_frota"
+					],
+					"query": [
+						{
+							"key": "diaEntrega",
+							"value": "20220120"
+						},
+						{
+							"key": "idCamiao",
+							"value": "5d107bee-aea1-4d5d-a3a1-51448f70c320"
+						},
+						{
+							"key": "opIndex",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Camiao Valido 2",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"IdCamiao\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.idCamiao).to.eql(\"78665192-6f55-42ef-9f89-d849b4cc4bec\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"CustoCaminho\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.custoCaminho).to.eql(253.8575);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Lista Final\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.listaFinal[0]).to.eql(\"M05\");\r",
+							"  pm.expect(responseJson.listaFinal[1]).to.eql(\"M04\");\r",
+							"  pm.expect(responseJson.listaFinal[2]).to.eql(\"M08\");\r",
+							"  pm.expect(responseJson.listaFinal[3]).to.eql(\"M01\");\r",
+							"  pm.expect(responseJson.listaFinal[4]).to.eql(\"M05\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/planeamento/criar_frota?diaEntrega=20220120&idCamiao=78665192-6f55-42ef-9f89-d849b4cc4bec&opIndex=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"planeamento",
+						"criar_frota"
+					],
+					"query": [
+						{
+							"key": "diaEntrega",
+							"value": "20220120"
+						},
+						{
+							"key": "idCamiao",
+							"value": "78665192-6f55-42ef-9f89-d849b4cc4bec"
+						},
+						{
+							"key": "opIndex",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Camiao Inválido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"IdCamiao\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.errors.message).to.eql(\"Cannot use 'in' operator to search for 'id' in <!DOCTYPE html>\\r\\n<html>\\r\\n<head>\\r\\n<title>500 Internal server error</title>\\r\\n\\r\\n<meta http-equiv=\\\"content-type\\\" content=\\\"text/html; charset=UTF-8\\\">\\r\\n\\r\\n</head>\\r\\n<body>\\r\\n\\r\\n<h1>Internal server error</h1>\\r\\n\\r\\n<p>\\r\\nurl `\\\"http://localhost:3000/api/camioes/85-636-42ef-9f89-d849b4cc4bec\\\"' does not exist (status(404,Not Found))</p>\\r\\n\\r\\n<address>\\r\\n<a href=\\\"http://www.swi-prolog.org\\\">SWI-Prolog</a> httpd at LAPTOP-EE050SB0\\r\\n</address>\\r\\n\\r\\n</body>\\r\\n</html>\\r\\n\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Successful GET request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([500]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/planeamento/criar_frota?diaEntrega=20220120&idCamiao=85-636-42ef-9f89-d849b4cc4bec&opIndex=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"planeamento",
+						"criar_frota"
+					],
+					"query": [
+						{
+							"key": "diaEntrega",
+							"value": "20220120"
+						},
+						{
+							"key": "idCamiao",
+							"value": "85-636-42ef-9f89-d849b4cc4bec"
+						},
+						{
+							"key": "opIndex",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Sem um dos parametros",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"IdCamiao\", () => {\r",
+							"  const responseJson = pm.response.json();\r",
+							"  pm.expect(responseJson.errors.message).to.eql(\"Cannot use 'in' operator to search for 'id' in <!DOCTYPE html>\\r\\n<html>\\r\\n<head>\\r\\n<title>500 Internal server error</title>\\r\\n\\r\\n<meta http-equiv=\\\"content-type\\\" content=\\\"text/html; charset=UTF-8\\\">\\r\\n\\r\\n</head>\\r\\n<body>\\r\\n\\r\\n<h1>Internal server error</h1>\\r\\n\\r\\n<p>\\r\\nurl `\\\"https://localhost:7097/api/Entregas/undefined\\\"' does not exist (status(400,Bad Request))</p>\\r\\n\\r\\n<address>\\r\\n<a href=\\\"http://www.swi-prolog.org\\\">SWI-Prolog</a> httpd at LAPTOP-EE050SB0\\r\\n</address>\\r\\n\\r\\n</body>\\r\\n</html>\\r\\n\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Successful GET request\", function () {\r",
+							"    pm.expect(pm.response.code).to.be.oneOf([500]);\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/planeamento/criar_frota?idCamiao=78665192-6f55-42ef-9f89-d849b4cc4bec&opIndex=1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"planeamento",
+						"criar_frota"
+					],
+					"query": [
+						{
+							"key": "idCamiao",
+							"value": "78665192-6f55-42ef-9f89-d849b4cc4bec"
+						},
+						{
+							"key": "opIndex",
+							"value": "1"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

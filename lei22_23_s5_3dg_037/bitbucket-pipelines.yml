@@ -1,0 +1,56 @@
+# This is an example Starter pipeline configuration
+# Use a skeleton to build, test and deploy using manual and parallel steps
+# -----
+# You can specify a custom docker image from Docker Hub as your build environment.
+
+image: atlassian/default-image:3
+
+pipelines:
+  default:
+    - parallel:
+      - step:
+          name: 'SPA Build and Test'
+          script:
+            - cd /opt/atlassian/pipelines/agent/build/SPA/spa
+            - nvm install node
+            - node -v
+            - npm i
+            - npm i three
+            - npm install -g @angular/cli
+            - npm ci
+            - npm install cypress --save-dev
+            - npm i @abacritt/angularx-social-login
+            - >
+              wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - && \
+              sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list' && \
+              apt-get update && \
+              apt-get install -y google-chrome-stable xvfb procps
+            - ng build
+            #- ng run test:ci
+      - step:
+          name: 'Three.js'
+          script:
+            - cd /opt/atlassian/pipelines/agent/build/SPA
+            - npm i
+            - npm i three
+      - step:
+          name: 'Lint'
+          script:
+            - echo "Your linting goes here..."
+      - step:
+          name: 'Security scan'
+          script:
+            - echo "Your security scan goes here..."
+
+    # The following deployment steps will be executed for each pipeline run. To configure your steps and conditionally deploy see https://support.atlassian.com/bitbucket-cloud/docs/configure-bitbucket-pipelinesyml/
+    - step:
+        name: 'Deployment to Staging'
+        deployment: staging
+        script:
+          - echo "Your deployment to staging script goes here..."
+    - step:
+        name: 'Deployment to Production'
+        deployment: production
+        trigger: 'manual'
+        script:
+          - echo "Your deployment to production script goes here..."

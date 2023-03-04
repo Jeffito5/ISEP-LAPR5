@@ -1,0 +1,65 @@
+Guião para LAPR5
+
+Notas:
+
+	- Quando estivermos a mostrar as US, falar da integração dos módulos sempre que existir;
+	- Criar dados de teste anteriormente;
+	- Abrir todos os scripts + Prolog;
+	- Bloco de notas com as contas associadas;
+	- Abrir Jira e Bitbucket;
+	- Abrir Excel com a autoavaliação;
+	- Abrir relatório de RGPD;
+	- Abrir o Visual Paradigm;
+	- Abrir as tabs das submissões.
+	
+Fluxo:
+	1º ponto (Artur):
+		- Planeamento -> mostrar o issue do Planeamento no Jira
+					  -> mostrar o Excel com o Planeamento
+					  -> mostrar o DoR e DoD
+		- Burndown chart
+		- Mostrar o backlog
+		- Mostrar o bitbucket com os issues associados
+		- Mostrar a Retrospetiva final
+
+	2º ponto (Danilton):
+		- RGPD- mostrar relatório de RGPD.
+		
+	3º ponto (João): 
+		- Visual Paradigm com o diagrama geral a mostrar as integrações. Geral / SGRAI / sso / Criar e anonimizar user
+	
+	4º ponto (Todos):
+		anamariazinha@gmail.com / anagrandota
+		- Entrar como administrador:
+			- Criar um utilizador de teste; (Artur)
+			- Listar utilizadores e mostrar que não está anonimizado; (Artur)
+			- Anonimizar utilizador; (Artur)
+			- Voltar a listar os utilizadores e mostrar que está anonimizado. (Artur)
+			
+		- Logout;
+		
+		entrar com conta gmail do João
+		- Entrar como gestor de logística:
+			- Listar camiões- inibir um camião; (João)
+			- Mostrar planeamento unitário; (Danilton)
+			- Mostrar planeamento de frota; (Danilton)
+			- Listar rotas para se ver a paginação; (Luís)
+			- Rede Viária- mostrar o camião a andar e a falta do armazém de teste. Criar um armazém e mostrar novamente. (Luís)
+		
+		joaquim123@gmail.com / avatar2naopresta
+		- Entrar como gestor de armazém:
+			- Listar armazéns e entregas para se ver a paginação e filtragem; (Luís)
+			- Criar um armazém- mostrar a parte de inibir e criar um armazém de teste; (Luís)
+		{
+			"id": "M50",
+			"designacao": "Teste",
+			"latitude": 40.7321,
+			"longitude": 8.1451,
+			"altitude": 250,
+			"endereco": "Rua SP2,      1121-112,      Porto",
+			"ativo": false
+		  }
+			
+		- Logout;
+		
+		

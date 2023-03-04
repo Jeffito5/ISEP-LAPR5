@@ -1,0 +1,30 @@
+[
+    {
+        "username": "admin",
+        "password": "adminIsep123",
+        "name": "G037",
+        "dataAniversario": "2001/01/01",
+        "tipoUtilizador": "administrador"
+    },
+    {
+        "username": "gestor_armazem_01",
+        "password": "gArmazemIsep123",
+        "name": "Jorge Pinto",
+        "dataAniversario": "2002/02/02",
+        "tipoUtilizador": "gestor_armazem"
+    },
+    {
+        "username": "gestor_logistica_01",
+        "password": "gLogistIsep123",
+        "name": "Elton Monteiro",
+        "dataAniversario": "2003/03/03",
+        "tipoUtilizador": "gestor_logistica"
+    },
+    {
+        "username": "gestor_frotas_01",
+        "password": "gFrotasIsep123",
+        "name": "Ana Lopes",
+        "dataAniversario": "2004/04/04",
+        "tipoUtilizador": "gestor_frota"
+    }
+]
